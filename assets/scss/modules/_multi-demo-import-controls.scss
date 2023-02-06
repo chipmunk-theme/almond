@@ -1,4 +1,4 @@
-.merlin {
+.almond {
 
 	&__select-control-wrapper {
 		position: relative;
@@ -59,7 +59,7 @@
 	}
 
 	&__demo-import-preview {
-		width: calc( 100% - 20px );
+		width: calc(100% - 20px);
 		margin: 20px 0;
 		background-color: #f1f1f1;
 		padding: 10px;
@@ -71,7 +71,7 @@
 	}
 }
 
-.merlin__drawer--open {
+.almond__drawer--open {
 
 	.is-multi-import {
 		transition: padding 300ms cubic-bezier(0.75, 0, 0.25, 1) 100ms;
@@ -82,7 +82,7 @@
 .is-multi-import {
 	transition: padding 600ms cubic-bezier(0.75, 0, 0.25, 1);
 
-	.merlin__content__footer {
+	.almond__content__footer {
 		margin-top: 7px;
 	}
 }

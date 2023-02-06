@@ -7,7 +7,7 @@ var pkg                     = require('./package.json');
 var project                 = pkg.name;
 var slug                    = pkg.slug;
 var version                 = pkg.version;
-var projectURL              = 'http://demo.merlinwp.dev/wp-admin/themes.php?page=merlin';
+var projectURL              = 'http://demo.almondwp.dev/wp-admin/themes.php?page=almond';
 
 // Translations.
 var text_domain             = '@@textdomain';
@@ -17,27 +17,27 @@ var bugReport               = pkg.author_uri;
 var lastTranslator          = pkg.author;
 var team                    = pkg.author_shop;
 var translatePath           = './languages/' + destFile;
-var translatableFiles       = ['./**/*.php', '!merlin-config-sample.php', '!merlin-filters-sample.php' ];
+var translatableFiles       = ['./**/*.php', '!almond-config-sample.php', '!almond-filters-sample.php' ];
 
 // Styles.
-var merlinStyleSRC          = './assets/scss/merlin.scss'; // Path to main .scss file.
-var merlinStyleDestination  = './assets/css/'; // Path to place the compiled CSS file.
-var merlinCssFiles          = './assets/css/**/*.css'; // Path to main .scss file.
-var merlinStyleWatchFiles   = './assets/scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
+var almondStyleSRC          = './assets/scss/almond.scss'; // Path to main .scss file.
+var almondStyleDestination  = './assets/css/'; // Path to place the compiled CSS file.
+var almondCssFiles          = './assets/css/**/*.css'; // Path to main .scss file.
+var almondStyleWatchFiles   = './assets/scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 
 // Scripts.
-var merlinScriptSRC         = './assets/js/merlin.js'; // Path to JS custom scripts folder.
-var merlinScriptDestination = './assets/js/'; // Path to place the compiled JS custom scripts file.
-var merlinScriptFile        = 'merlin'; // Compiled JS file name.
-var merlinScriptWatchFiles  = './assets/js/*.js'; // Path to all *.scss files inside css folder and inside them.
+var almondScriptSRC         = './assets/js/almond.js'; // Path to JS custom scripts folder.
+var almondScriptDestination = './assets/js/'; // Path to place the compiled JS custom scripts file.
+var almondScriptFile        = 'almond'; // Compiled JS file name.
+var almondScriptWatchFiles  = './assets/js/*.js'; // Path to all *.scss files inside css folder and inside them.
 
 // Watch files.
 var projectPHPWatchFiles    = ['./**/*.php', '!_dist'];
 
 // Build files.
-var buildFiles              = ['./**', '!node_modules/**', '!dist/', '!demo/**', '!composer.json', '!composer.lock', '!.gitattributes', '!phpcs.xml', '!package.json', '!package-lock.json', '!gulpfile.js', '!LICENSE', '!README.md', '!assets/scss/**', '!merlin-config-sample.php', '!merlin-filters-sample.php', '!CODE_OF_CONDUCT.md' ];
-var buildDestination        = './dist/merlin/';
-var distributionFiles       = './dist/merlin/**/*';
+var buildFiles              = ['./**', '!node_modules/**', '!dist/', '!demo/**', '!composer.json', '!composer.lock', '!.gitattributes', '!phpcs.xml', '!package.json', '!package-lock.json', '!gulpfile.js', '!LICENSE', '!README.md', '!assets/scss/**', '!almond-config-sample.php', '!almond-filters-sample.php', '!CODE_OF_CONDUCT.md' ];
+var buildDestination        = './dist/almond/';
+var distributionFiles       = './dist/almond/**/*';
 
 // Browsers you care about for autoprefixing. https://github.com/ai/browserslist
 const AUTOPREFIXER_BROWSERS = [
@@ -103,7 +103,7 @@ gulp.task( 'browser_sync', function() {
 });
 
 gulp.task('styles', function () {
-	gulp.src( merlinStyleSRC )
+	gulp.src( almondStyleSRC )
 
 	.pipe( sass( {
 		errLogToConsole: true,
@@ -117,7 +117,7 @@ gulp.task('styles', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( merlinStyleDestination ) )
+	.pipe( gulp.dest( almondStyleDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -127,26 +127,26 @@ gulp.task('styles', function () {
 		maxLineLen: 10
 	}))
 
-	.pipe( gulp.dest( merlinStyleDestination ) )
+	.pipe( gulp.dest( almondStyleDestination ) )
 
 	.pipe( browserSync.stream() )
 });
 
 gulp.task( 'scripts', function() {
-	gulp.src( merlinScriptSRC )
+	gulp.src( almondScriptSRC )
 	.pipe( rename( {
-		basename: merlinScriptFile,
+		basename: almondScriptFile,
 		suffix: '.min'
 	}))
 	.pipe( uglify() )
 	.pipe( lineec() )
-	.pipe( gulp.dest( merlinScriptDestination ) )
+	.pipe( gulp.dest( almondScriptDestination ) )
 
 });
 
 gulp.task( 'default', ['clear', 'styles', 'scripts', 'browser_sync' ], function () {
 	gulp.watch( projectPHPWatchFiles, reload );
-	gulp.watch( merlinStyleWatchFiles, [ 'styles' ] );
+	gulp.watch( almondStyleWatchFiles, [ 'styles' ] );
 });
 
 gulp.task("composer", function () {
@@ -205,7 +205,7 @@ gulp.task('build-variables', ['build-clean-and-copy'], function () {
 
 gulp.task( 'build-zip', ['build-variables'] , function() {
     return gulp.src( buildDestination+'/**' , { base: 'dist' } )
-    .pipe( zip( 'merlin.zip' ) )
+    .pipe( zip( 'almond.zip' ) )
     .pipe( gulp.dest( './dist/' ) );
 });
 

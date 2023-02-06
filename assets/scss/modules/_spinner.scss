@@ -1,11 +1,11 @@
 $width: 23px;
 
-.merlin-spinner {
+.almond-spinner {
 	width: $width;
 	transition: opacity 300ms cubic-bezier(.694, 0, .335, 1) 50ms;
 
 	&:before {
-		content:"";
+		content: "";
 		display: block;
 		padding-top: 100%;
 	}
@@ -27,7 +27,7 @@ $width: 23px;
 		width: 100%;
 
 		.path {
-			stroke-dasharray: 1,200;
+			stroke-dasharray: 1, 200;
 			stroke-dashoffset: 0;
 			animation: spinnerDash 1.5s ease-in-out infinite, spinnerColor 6s ease-in-out infinite;
 			stroke-linecap: round;
@@ -35,7 +35,7 @@ $width: 23px;
 	}
 }
 
-.merlin {
+.almond {
 	&__select-spinner {
 		display: none;
 		top: 0;
@@ -47,37 +47,45 @@ $width: 23px;
 }
 
 @keyframes spinnerRotate {
-	100%{
+	100% {
 		transform: rotate(360deg);
 	}
 }
 
 @keyframes spinnerDash {
-	0%{
-		stroke-dasharray: 1,200;
+	0% {
+		stroke-dasharray: 1, 200;
 		stroke-dashoffset: 0;
 	}
-	50%{
-		stroke-dasharray: 89,200;
+
+	50% {
+		stroke-dasharray: 89, 200;
 		stroke-dashoffset: -35px;
 	}
-	100%{
-		stroke-dasharray: 89,200;
+
+	100% {
+		stroke-dasharray: 89, 200;
 		stroke-dashoffset: -124px;
 	}
 }
 
 @keyframes spinnerColor {
-	100%, 0%{
+
+	100%,
+	0% {
 		stroke: $blue;
 	}
-	40%{
+
+	40% {
 		stroke: $blue__lighter;
 	}
-	66%{
+
+	66% {
 		stroke: $blue;
 	}
-	80%, 90%{
+
+	80%,
+	90% {
 		stroke: $blue__lighter;
 	}
 }

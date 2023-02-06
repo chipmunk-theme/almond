@@ -1,4 +1,4 @@
-.merlin__content__footer {
+.almond__content__footer {
 	@include clearfix();
 	clear: both;
 	margin-top: 2.75em;
@@ -27,29 +27,28 @@
 	&--nolinks {
 		margin-bottom: 3.14em;
 
-		.merlin__button {
+		.almond__button {
 			margin-top: .57em;
 		}
 	}
 
-	.merlin__content--license & {
+	.almond__content--license & {
 		margin-top: -.24em;
 	}
 
-	.merlin__content--ready & {
+	.almond__content--ready & {
 		margin-top: 1.9em;
 
-		.merlin__button--knockout {
+		.almond__button--knockout {
 			margin-top: 10px;
 		}
 	}
 
-	.merlin__content--content & {
+	.almond__content--content & {
 		transition: opacity $speed cubic-bezier(.694, 0, .335, 1);
 	}
 
-	body.exiting .merlin__content--content & {
+	body.exiting .almond__content--content & {
 		opacity: 0;
 	}
 }
-

@@ -1,4 +1,4 @@
-.merlin__button {
+.almond__button {
 	background: $white;
 	border-radius: 4px;
 	border: 0;
@@ -24,6 +24,7 @@
 		background: $button--hover;
 
 		.chevron {
+
 			&::after,
 			&::before {
 				background: $blue;

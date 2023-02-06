@@ -1,16 +1,12 @@
 {
-  "name": "richtabor/merlin-wp",
-  "description": "Better WordPress Theme Onboarding.",
+  "name": "chipmunk-theme/almond",
+  "description": "Onboarding for Chipmunk Theme.",
   "keywords": ["wp", "wordpress", "theme", "onboarding", "import", "content"],
   "license": "GPL-3.0+",
   "authors": [
     {
-      "name"     : "Rich Tabor",
-      "homepage" : "https://richtabor.com"
-    },
-    {
-      "name"     : "ProteusThemes",
-      "homepage" : "https://www.proteusthemes.com/"
+      "name"     : "Chipmunk Theme",
+      "homepage" : "https://chipmunktheme.com"
     }
   ],
   "require": {

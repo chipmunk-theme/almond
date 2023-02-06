@@ -10,15 +10,15 @@
 	top: 10px;
 	z-index: 0;
 
-	.merlin__content--ready & {
+	.almond__content--ready & {
 		display: none;
 	}
 
-	.merlin__content--content & {
+	.almond__content--content & {
 		transition: opacity $speed cubic-bezier(.694, 0, .335, 1);
 	}
 
-	body.exiting .merlin__content--content & {
+	body.exiting .almond__content--content & {
 		opacity: 0;
 	}
 }
@@ -72,43 +72,50 @@
 }
 
 @keyframes sonarEffect {
-    0% {
-        opacity: 1;
-    }
-    40% {
-        opacity: 0.5;
-        box-shadow: 0 0 0 1px lighten($blue, 50%);
-    }
-    100% {
-        box-shadow: 0 0 0 1px lighten($blue, 50%);
-        transform: scale(1.6);
-        opacity: 0;
-    }
+	0% {
+		opacity: 1;
+	}
+
+	40% {
+		opacity: 0.5;
+		box-shadow: 0 0 0 1px lighten($blue, 50%);
+	}
+
+	100% {
+		box-shadow: 0 0 0 1px lighten($blue, 50%);
+		transform: scale(1.6);
+		opacity: 0;
+	}
 }
 
 @keyframes popIn {
 	0% {
 		background: #e3e3e3;
 	}
-	40% {
-    }
+
+	40% {}
+
 	55% {
 		background: #e3e3e3;
 		transform: scale(1);
 
 	}
+
 	65% {
 		transform: scale(1.6);
 		background: #0073aa;
 	}
+
 	85% {
 		transform: scale(0.8);
 		background: #0073aa;
 	}
+
 	95% {
 		transform: scale(1.2);
 		background: #0073aa;
 	}
+
 	100% {
 		transform: scale(1);
 		background: #0073aa;

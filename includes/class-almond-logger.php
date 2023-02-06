@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The logger class, which will abstract the use of the monolog library.
  * More about monolog: https://github.com/Seldaek/monolog
@@ -7,7 +8,8 @@
 use Monolog\Logger as MonologLogger;
 use Monolog\Handler\StreamHandler;
 
-class Merlin_Logger {
+class Almond_Logger
+{
 	/**
 	 * @var object instance of the monolog logger class.
 	 */
@@ -41,8 +43,9 @@ class Merlin_Logger {
 	 *
 	 * @codeCoverageIgnore Nothing to test, default PHP singleton functionality.
 	 */
-	public static function get_instance() {
-		if ( null === static::$instance ) {
+	public static function get_instance()
+	{
+		if (null === static::$instance) {
 			static::$instance = new static();
 		}
 
@@ -56,16 +59,17 @@ class Merlin_Logger {
 	 * Protected constructor to prevent creating a new instance of the
 	 * *Singleton* via the `new` operator from outside of this class.
 	 */
-	protected function __construct( $log_path = null, $name = 'merlin-logger' ) {
+	protected function __construct($log_path = null, $name = 'almond-logger')
+	{
 		$this->log_path    = $log_path;
 		$this->logger_name = $name;
 
-		if ( empty( $this->log_path ) ) {
+		if (empty($this->log_path)) {
 			$upload_dir = wp_upload_dir();
-			$logger_dir = $upload_dir['basedir'] . '/merlin-wp';
+			$logger_dir = $upload_dir['basedir'] . '/chipmunk-almond';
 
-			if ( ! file_exists( $logger_dir ) ) {
-				wp_mkdir_p( $logger_dir );
+			if (!file_exists($logger_dir)) {
+				wp_mkdir_p($logger_dir);
 			}
 
 			$this->log_path = $logger_dir . '/main.log';
@@ -78,13 +82,14 @@ class Merlin_Logger {
 	/**
 	 * Initialize the monolog logger class.
 	 */
-	private function initialize_logger() {
-		if ( empty( $this->log_path ) || empty( $this->logger_name ) ) {
+	private function initialize_logger()
+	{
+		if (empty($this->log_path) || empty($this->logger_name)) {
 			return false;
 		}
 
-		$this->log = new MonologLogger( $this->logger_name );
-		$this->log->pushHandler( new StreamHandler( $this->log_path, MonologLogger::DEBUG ) );
+		$this->log = new MonologLogger($this->logger_name);
+		$this->log->pushHandler(new StreamHandler($this->log_path, MonologLogger::DEBUG));
 	}
 
 
@@ -96,8 +101,9 @@ class Merlin_Logger {
 	 *
 	 * @return boolean Whether the record has been processed.
 	 */
-	public function debug( $message, $context = array() ) {
-		return $this->log->debug( $message, $context );
+	public function debug($message, $context = array())
+	{
+		return $this->log->debug($message, $context);
 	}
 
 	/**
@@ -108,8 +114,9 @@ class Merlin_Logger {
 	 *
 	 * @return boolean Whether the record has been processed.
 	 */
-	public function info( $message, $context = array() ) {
-		return $this->log->info( $message, $context );
+	public function info($message, $context = array())
+	{
+		return $this->log->info($message, $context);
 	}
 
 
@@ -121,8 +128,9 @@ class Merlin_Logger {
 	 *
 	 * @return boolean Whether the record has been processed.
 	 */
-	public function notice( $message, $context = array() ) {
-		return $this->log->notice( $message, $context );
+	public function notice($message, $context = array())
+	{
+		return $this->log->notice($message, $context);
 	}
 
 
@@ -134,8 +142,9 @@ class Merlin_Logger {
 	 *
 	 * @return boolean Whether the record has been processed.
 	 */
-	public function warning( $message, $context = array() ) {
-		return $this->log->warning( $message, $context );
+	public function warning($message, $context = array())
+	{
+		return $this->log->warning($message, $context);
 	}
 
 
@@ -147,8 +156,9 @@ class Merlin_Logger {
 	 *
 	 * @return boolean Whether the record has been processed.
 	 */
-	public function error( $message, $context = array() ) {
-		return $this->log->error( $message, $context );
+	public function error($message, $context = array())
+	{
+		return $this->log->error($message, $context);
 	}
 
 
@@ -160,8 +170,9 @@ class Merlin_Logger {
 	 *
 	 * @return boolean Whether the record has been processed.
 	 */
-	public function alert( $message, $context = array() ) {
-		return $this->log->alert( $message, $context );
+	public function alert($message, $context = array())
+	{
+		return $this->log->alert($message, $context);
 	}
 
 
@@ -173,8 +184,9 @@ class Merlin_Logger {
 	 *
 	 * @return boolean Whether the record has been processed.
 	 */
-	public function emergency( $message, $context = array() ) {
-		return $this->log->emergency( $message, $context );
+	public function emergency($message, $context = array())
+	{
+		return $this->log->emergency($message, $context);
 	}
 
 
@@ -183,7 +195,9 @@ class Merlin_Logger {
 	 *
 	 * @return void
 	 */
-	private function __clone() {}
+	private function __clone()
+	{
+	}
 
 
 	/**
@@ -191,5 +205,7 @@ class Merlin_Logger {
 	 *
 	 * @return void
 	 */
-	private function __wakeup() {}
+	private function __wakeup()
+	{
+	}
 }

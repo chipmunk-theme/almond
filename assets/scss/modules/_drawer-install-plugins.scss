@@ -1,8 +1,8 @@
-.merlin__drawer--install-plugins {
+.almond__drawer--install-plugins {
 	text-align: left;
 	overflow: visible;
 
-	.merlin__drawer--open & {
+	.almond__drawer--open & {
 		padding-bottom: 1px;
 	}
 
@@ -17,7 +17,7 @@
 			}
 		}
 
-		.merlin__status-class {
+		.almond__status-class {
 			display: none;
 		}
 
@@ -56,7 +56,7 @@
 			position: relative;
 			text-align: left;
 			transform-origin: center;
-			transition: border-color 100ms, background-color 100ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89);
+			transition: border-color 100ms, background-color 100ms, transform 350ms cubic-bezier(.78, -1.22, .17, 1.89);
 			width: 13px;
 
 			&:before {

@@ -1,14 +1,16 @@
 <?php
+
 /**
  * A class that extends WP_Customize_Setting so we can access
  * the protected updated method when importing options.
  *
  * Used in the Customizer importer.
  *
- * @package Merlin WP
+ * @package Almond
  */
 
-final class Merlin_Customizer_Option extends \WP_Customize_Setting {
+final class Almond_Customizer_Option extends \WP_Customize_Setting
+{
 	/**
 	 * Import an option value for this setting.
 	 *
@@ -16,7 +18,8 @@ final class Merlin_Customizer_Option extends \WP_Customize_Setting {
 	 * @param mixed $value The option value.
 	 * @return void
 	 */
-	public function import( $value ) {
-		$this->update( $value );
+	public function import($value)
+	{
+		$this->update($value);
 	}
 }
